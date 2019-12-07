@@ -13,6 +13,7 @@ import { EditTaskComponent } from './task/edit-task/edit-task.component';
 import {ApiService} from "./service/api.service";
 import {TokenInterceptor} from "./core/interceptor";
 import { Ng5SliderModule } from 'ng5-slider';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const routes: Routes = [
   { path: 'add-task', component: AddTaskComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
     AddTaskComponent,
     ViewTaskComponent,
     EditTaskComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    Ng2SearchPipeModule
   ],
   exports: [RouterModule],
   providers: [ApiService, {provide: HTTP_INTERCEPTORS,

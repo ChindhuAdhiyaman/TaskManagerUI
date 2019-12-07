@@ -10,9 +10,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   baseUrl: string = 'http://localhost:8083/taskmanager';
 
-  // login(loginPayload) : Observable<ApiResponse> {
-  //   return this.http.post<ApiResponse>('http://localhost:8080/' + 'token/generate-token', loginPayload);
-  // }
 
   getTasks() : Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl+"/tasks");

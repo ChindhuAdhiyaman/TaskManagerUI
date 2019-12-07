@@ -30,7 +30,6 @@ export class AddTaskComponent implements OnInit {
       endDate: ['', Validators.required]
     });
 
-    //this.router.navigate(['view-task']);
     return;
 
   }
@@ -45,7 +44,6 @@ export class AddTaskComponent implements OnInit {
       .subscribe( data => {
         this.router.navigate(['view-task']);
       });
-    //this.router.navigate(['view-task']);
   }
   
 }

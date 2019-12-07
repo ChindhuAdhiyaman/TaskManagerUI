@@ -30,7 +30,6 @@ export class EditTaskComponent implements OnInit {
       endDate: ['', Validators.required]
     });
 
-    //this.router.navigate(['view-task']);
     return;
 
   }

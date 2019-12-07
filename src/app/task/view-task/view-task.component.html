@@ -1,0 +1,73 @@
+<div class="user-container">
+  <h2 style="margin: auto"> View Task's</h2>
+   <form [formGroup]="viewForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-4">
+        <label for="taskName">Task Name:</label>
+        <input type="text" formControlName="taskName" placeholder="Task Name" name="taskName" class="form-control"
+          id="taskName">
+      </div>
+      <div class="col-md-6">
+        <label for="parentTaskName">Parent Task Name:</label>
+        <input type="text" formControlName="parentTaskName" placeholder="Parent Task Name" name="parentTaskName"
+          class="form-control" id="parentTaskName">
+      </div>
+    </div><br />
+    <div class="row">
+      <div class="col-md-2">
+        <label for="priorityFrom">Priority From:</label>
+        <input type="text" formControlName="priority" placeholder="priority From" name="priorityFrom"
+          class="form-control" id="priorityFrom">
+      </div>
+      <div class="col-md-2">
+        <label for="priorityTo">Priority To:</label>
+        <input type="text" formControlName="priority" placeholder="priority To" name="priorityTo" class="form-control"
+          id="priorityTo">
+      </div>
+      <div class="col-sm-3">
+        <label for="startDate">Start Date:</label>
+        <input type="date" formControlName="startDate" placeholder="Start Date" name="startDate" class="form-control"
+          id="startDate">
+      </div>
+
+      <div class="col-sm-3">
+        <label for="endDate">End Date:</label>
+        <input type="date" formControlName="endDate" placeholder="End Date" name="endDate" class="form-control"
+          id="endDate">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </div>
+
+    <table border="1" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Parent Task Name</th>
+          <th>Priority</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <!-- <td class="form-row"></td>  -->
+
+          <td> <textarea rows="2">{{task.taskName}}</textarea></td>
+          <td><textarea rows="2">{{task.parentTaskName}}</textarea> </td>
+          <td> <output>{{task.priority}}</output></td>
+          <td> <output>{{task.startDate}}</output></td>
+          <td><output>{{task.endDate}}</output></td>
+          <td>
+
+
+            <button class="btn btn-success" (click)="editTask(task)"[disabled]="isOld(task.endDate)" style="margin-left: 20px;"> Edit</button>
+            <button class="btn btn-success" (click)="endTask(task)" [disabled]="isOld(task.endDate)"> End Task</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form><br />
+</div>
